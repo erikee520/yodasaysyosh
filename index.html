@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Yoda Says</title>
+  <link rel=stylesheet href="style.css" media="screen"/>
+  <script src="http://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+    crossorigin="anonymous"></script> 
+</head>
+<body>
+  <div class="game-container">
+    <div class="game-controls">
+      <div class="game-buttons">
+        <button class="game-button">Begin</button> 
+        <button class="game-button" onClick="resetGame()">Reset</button> 
+      </div>
+      <div class="game-results">
+        <h2>You pressed</h2>
+        <ol id="played-colors"></ol>
+      </div>
+    </div>
+    <div class="game-board">
+      <div class="game-board-row">
+        <div class="game-square" id="blue" onClick="playSquare('blue')"></div>
+        <div class="game-square" id="yellow" onClick="playSquare('yellow')"></div>
+      </div>
+      <div class="game-board-row">
+        <div class="game-square" id="red" onClick="playSquare('red')"></div>
+        <div class="game-square" id="green" onClick="playSquare('green')"></div>
+      </div>
+    </div>
+    <div class="game-spacer">
+      <img class="yoda" src="yoda_cartoon.png" alt="Yoda says 'Follow the colors you must'" />
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    /**
+     * Calling this function adds an item to the list of played colors
+     * on the left of the screen
+     * @param {String} color: The color to add to the list. It should be
+     *    one of the following values: "red", "blue", "green", "yellow"
+     */ 
+    function displayColor(color) {
+      var playedColorsList = $('#played-colors')
+      playedColorsList.append(`<li class="${color}">${color}</li>`)
+      playedColorsList.scrollTop(playedColorsList[0].scrollHeight);
+    }
+
+    /**
+     * Removes all list items from the "played colors" box
+     */
+    function clearColors() {
+      $(`#played-colors > li`).remove()
+    }
+
+    /**
+     * Causes one of the game squares to highlight and then fade back
+     * to its resting color
+     * @param {String} color: The color to add to the list. It should be
+     *    one of the following values: "red", "blue", "green", "yellow"
+     */
+    function flashColor(color) {
+      var colorSquare = $(`#${color}`) 
+      colorSquare.addClass('hover')
+      setTimeout(function() {
+        colorSquare.removeClass('hover')
+      }, 500)
+    }
+  </script>
+
+  <script class="yoshi-code">
+      //
+      //
+      // ADD YOUR CODE HERE
+      //
+      //
+    function playSquare(color) {
+      // 
+      // THIS FUNCTION IS CALLED
+      // EVERY TIME A SQUARE IS CLICKED
+      //
+      console.log(`clicked the ${color} square`)
+    }
+
+    function beginGame() {
+      //
+      // THIS FUNCTION IS CALLED
+      // WHEN THE BEGIN BUTTON IS CLICKED
+      //
+      console.log('begin')
+    }
+
+    function resetGame() {
+      //
+      // THIS FUNCTION IS CALLED
+      // WHEN THE RESET BUTTON IS CLICKED
+      //
+      console.log('reset game')
+    }
+  </script>
+</body>
+</html>
