@@ -6,14 +6,14 @@
   <link rel=stylesheet href="style.css" media="screen"/>
   <script src="http://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
-    crossorigin="anonymous"></script> 
+    crossorigin="anonymous"></script>
 </head>
 <body>
   <div class="game-container">
     <div class="game-controls">
       <div class="game-buttons">
-        <button class="game-button">Begin</button> 
-        <button class="game-button" onClick="resetGame()">Reset</button> 
+        <button class="game-button">Begin</button>
+        <button class="game-button" onClick="resetGame()">Reset</button>
       </div>
       <div class="game-results">
         <h2>You pressed</h2>
@@ -41,7 +41,7 @@
      * on the left of the screen
      * @param {String} color: The color to add to the list. It should be
      *    one of the following values: "red", "blue", "green", "yellow"
-     */ 
+     */
     function displayColor(color) {
       var playedColorsList = $('#played-colors')
       playedColorsList.append(`<li class="${color}">${color}</li>`)
@@ -62,7 +62,7 @@
      *    one of the following values: "red", "blue", "green", "yellow"
      */
     function flashColor(color) {
-      var colorSquare = $(`#${color}`) 
+      var colorSquare = $(`#${color}`)
       colorSquare.addClass('hover')
       setTimeout(function() {
         colorSquare.removeClass('hover')
@@ -72,12 +72,11 @@
 
   <script class="yoshi-code">
       //
-      //
       // ADD YOUR CODE HERE
       //
       //
     function playSquare(color) {
-      // 
+      displayColor(color);
       // THIS FUNCTION IS CALLED
       // EVERY TIME A SQUARE IS CLICKED
       //
@@ -93,7 +92,7 @@
     }
 
     function resetGame() {
-      //
+      clearColors();
       // THIS FUNCTION IS CALLED
       // WHEN THE RESET BUTTON IS CLICKED
       //
