@@ -12,7 +12,7 @@
   <div class="game-container">
     <div class="game-controls">
       <div class="game-buttons">
-        <button class="game-button">Begin</button>
+        <button class="game-button" onClick="beginGame()">Begin</button>
         <button class="game-button" onClick="resetGame()">Reset</button>
       </div>
       <div class="game-results">
@@ -68,23 +68,70 @@
         colorSquare.removeClass('hover')
       }, 500)
     }
+    function flashColors(colors, timeout) {
+      if (colors.length > 0) {
+        let i = 0
+        let interval = setInterval(() => {
+          if (i < colors.length) {
+            flashColor(colors[i])
+            i++
+          } else {
+            clearInterval(interval)
+          }
+        }, timeout)
+      }
+    }
   </script>
 
   <script class="yoshi-code">
       //
       // ADD YOUR CODE HERE
       //
-      //
+    let playedColors = [];
+    let randomColors = [];
     function playSquare(color) {
       displayColor(color);
+      playedColors.push(color);
+      if (playedColors.length === 4) {
+        let win = comparePlays(playedColors, randomColors);
+        if (win === true) {
+          console.log('Win you did!');
+        } else {
+          console.log('Fail you did!');
+        }
+      }
+
+
+      console.log(playedColors);
+
       // THIS FUNCTION IS CALLED
       // EVERY TIME A SQUARE IS CLICKED
       //
       console.log(`clicked the ${color} square`)
     }
-
+    function comparePlays (userPlay, computerPlay) {
+      if (userPlay.length === computerPlay.length) {
+        for (i = 0; i < userPlay.length; i++) {
+          if (userPlay[i] !== computerPlay[i]) {
+            return false
+          }
+        }
+        return true
+      }
+      else {
+        return false
+      }
+    }
     function beginGame() {
-      //
+      const colors = ['blue', 'green', 'red', 'yellow'];
+       randomColors = [];
+       playedColors = [];
+      for (i = 0; i < 4; i++) {
+        let randomNumber = (Math.floor(Math.random() * 4))
+        randomColors.push(colors[randomNumber]);
+        console.log(randomColors);
+      };
+      flashColors(randomColors, 1000);
       // THIS FUNCTION IS CALLED
       // WHEN THE BEGIN BUTTON IS CLICKED
       //
