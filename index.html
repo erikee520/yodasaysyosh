@@ -94,18 +94,21 @@
       //
     let playedColors = [];
     let randomColors = [];
+    let winCounter = 0;
+    let loseCounter = 0;
     function playSquare(color) {
       displayColor(color);
       playedColors.push(color);
       if (playedColors.length === 4) {
         let win = comparePlays(playedColors, randomColors);
         if (win === true) {
-          console.log('Win you did!');
-          displayResults('Win you did!');
+          winCounter = winCounter + 1;
+          console.log('Win you did! x'+ winCounter);
+          displayResults('Win you did! x' + winCounter);
         } else {
-          console.log('Fail you did!');
-          let results = 'Fail you did';
-          displayResults('Fail you did!');
+          loseCounter = loseCounter + 1;
+          console.log('Fail you did! x' + loseCounter);
+          displayResults('Fail you did! x' + loseCounter);
         }
       }
 
