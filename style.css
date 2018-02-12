@@ -95,9 +95,12 @@ body {
 .game-results ol li.red {
   background-color: #ED5314;
 }
+.game-results ol li.black {
+  background-color: #000000;
+}
 
 .game-button:hover {
-  background-color: #FFCB5F; 
+  background-color: #FFCB5F;
 }
 
 .game-button:active {
@@ -159,7 +162,7 @@ body {
   border-radius: 0 0 1rem 0;
 }
 #green:hover, #green.hover {
-  background-color: #B4D76E; 
+  background-color: #B4D76E;
 }
 
 #red {

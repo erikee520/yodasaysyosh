@@ -47,6 +47,11 @@
       playedColorsList.append(`<li class="${color}">${color}</li>`)
       playedColorsList.scrollTop(playedColorsList[0].scrollHeight);
     }
+    function displayResults(results) {
+      var playedColorsList = $('#played-colors')
+      playedColorsList.append(`<li class="black">${results}</li>`)
+      playedColorsList.scrollTop(playedColorsList[0].scrollHeight);
+    }
 
     /**
      * Removes all list items from the "played colors" box
@@ -96,8 +101,11 @@
         let win = comparePlays(playedColors, randomColors);
         if (win === true) {
           console.log('Win you did!');
+          displayResults('Win you did!');
         } else {
           console.log('Fail you did!');
+          let results = 'Fail you did';
+          displayResults('Fail you did!');
         }
       }
 
