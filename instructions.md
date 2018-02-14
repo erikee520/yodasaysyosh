@@ -19,3 +19,14 @@ the user whether they have succeeded or failed. You can use the code in
 more difficult as the player succeeds. Maybe the game should automatically reset
 all colors every time a new pattern begins. Maybe you can track the number of 
 correct colors clicked and create a scoring system. 
+
+## ROUND 2!!!
+5. The `displayColor` and `displayResults` functions are very similar. Combine
+them into a single function with 2 parameters that you can use for both events.
+6. A new control, a number select, has been added. The value shows the number 
+of flashes to start the game with. Update your code to use this number. You 
+should start in `updateNumberFlashes`. 
+7. As the game progresses it should get more difficult. There is a function,
+`setNumberFlashes`, that will update the select with a new number of flashes. 
+Every time the user gets this right the number should go up one (to a max of 
+15). When they get it wrong it should go back to the default 4.

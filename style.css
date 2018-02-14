@@ -39,15 +39,41 @@ body {
 .game-button {
   display: flex;
   justify-content: center;
-  border-radius: 1rem;
+  border-radius: .5rem;
   border: none;
-  font-size: 48pt;
+  font-size: 18pt;
   background-image: none;
   background-color: #FFB92A;
   color: #fff;
 
-  padding: 2rem;
+  width: 47.5%;
+  padding: 1rem;
   margin-bottom: 2rem;
+}
+
+.game-select {
+  height: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.game-select label {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: right;
+  margin-right: 1rem;
+  font-family: sans-serif;
+  width: 25%;
+  height: 100%;
+}
+
+.game-select select {
+  height: 100%;
+  width: 25%;
 }
 
 .game-results {
@@ -56,7 +82,7 @@ body {
   align-items: center;
   flex: 1;
   background-color: white;
-  border-radius: 1rem;
+  border-radius: .5rem;
   padding: 1rem;
 }
 
@@ -143,7 +169,7 @@ body {
 
 #blue {
   background-color: #3ABBC9;
-  border-radius: 1rem 0 0 0;
+  border-radius: 0.5rem 0 0 0;
 }
 #blue:hover, #blue.hover {
   background-color: #6BCCD7;
@@ -151,7 +177,7 @@ body {
 
 #yellow {
   background-color: #FEEB51;
-  border-radius: 0 1rem 0 0;
+  border-radius: 0 0.5rem 0 0;
 }
 #yellow:hover, #yellow.hover {
   background-color: #FEF07D;
@@ -159,7 +185,7 @@ body {
 
 #green {
   background-color: #9BCA3E;
-  border-radius: 0 0 1rem 0;
+  border-radius: 0 0 0.5rem 0;
 }
 #green:hover, #green.hover {
   background-color: #B4D76E;
@@ -167,7 +193,7 @@ body {
 
 #red {
   background-color: #ED5314;
-  border-radius: 0 0 0 1rem;
+  border-radius: 0 0 0 0.5rem;
 }
 #red:hover, #red.hover {
   background-color: #F27E4F;

@@ -15,6 +15,26 @@
         <button class="game-button" onClick="beginGame()">Begin</button>
         <button class="game-button" onClick="resetGame()">Reset</button>
       </div>
+      <div class="game-select">
+        <label for="number-colors">Number of flashes</label>
+        <select name="number-colors">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option selected>4</option>
+          <option>5</option>
+          <option>6</option>
+          <option>7</option>
+          <option>8</option>
+          <option>9</option>
+          <option>10</option>
+          <option>11</option>
+          <option>12</option>
+          <option>13</option>
+          <option>14</option>
+          <option>15</option>
+        </select>
+      </div>
       <div class="game-results">
         <h2>You pressed</h2>
         <ol id="played-colors"></ol>
@@ -86,6 +106,20 @@
         }, timeout)
       }
     }
+
+    function setNumberFlashes(number) {
+      $('.game-select>select').val(`${number}`)
+    }
+
+    // .ready is a jQuery function that runs as soon as the web page has
+    // loaded. Within this function we add an event listener that fires
+    // every time the select changes and calls the updateNumberFlashes
+    // function. 
+    $(document).ready(function () {
+      $('.game-select>select').change(function(event) { 
+        updateNumberFlashes(event.target.value) 
+      })
+    })
   </script>
 
   <script class="yoshi-code">
@@ -155,6 +189,18 @@
       // WHEN THE RESET BUTTON IS CLICKED
       //
       console.log('reset game')
+    }
+
+    /**
+     * Changes the number of flashes that the game begins with by reading
+     * the selected value of the .game-select control
+     * @param {Number} number: The newly selected number
+     */
+    function updateNumberFlashes(number) {
+      console.log('number: ', number)
+      //
+      // YOSHI CODE HERE
+      //
     }
   </script>
 </body>
