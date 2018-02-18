@@ -62,15 +62,11 @@
      * @param {String} color: The color to add to the list. It should be
      *    one of the following values: "red", "blue", "green", "yellow"
      */
-    function displayColor(color) {
+    function displayColor(color, results) {
       var playedColorsList = $('#played-colors')
-      playedColorsList.append(`<li class="${color}">${color}</li>`)
-      playedColorsList.scrollTop(playedColorsList[0].scrollHeight);
-    }
-    function displayResults(results) {
-      var playedColorsList = $('#played-colors')
-      playedColorsList.append(`<li class="black">${results}</li>`)
-      playedColorsList.scrollTop(playedColorsList[0].scrollHeight);
+        playedColorsList.append(`<li class="${color}">${results}</li>`)
+        playedColorsList.scrollTop(playedColorsList[0].scrollHeight);
+
     }
 
     /**
@@ -114,10 +110,10 @@
     // .ready is a jQuery function that runs as soon as the web page has
     // loaded. Within this function we add an event listener that fires
     // every time the select changes and calls the updateNumberFlashes
-    // function. 
+    // function.
     $(document).ready(function () {
-      $('.game-select>select').change(function(event) { 
-        updateNumberFlashes(event.target.value) 
+      $('.game-select>select').change(function(event) {
+        updateNumberFlashes(event.target.value)
       })
     })
   </script>
@@ -130,20 +126,23 @@
     let randomColors = [];
     let winCounter = 0;
     let loseCounter = 0;
+    let results;
+
     function playSquare(color) {
-      displayColor(color);
+      displayColor(color, color);
       playedColors.push(color);
       if (playedColors.length === 4) {
         let win = comparePlays(playedColors, randomColors);
         if (win === true) {
           winCounter = winCounter + 1;
           console.log('Win you did! x'+ winCounter);
-          displayResults('Win you did! x' + winCounter);
+          results = 'Win you did! x' + winCounter;
         } else {
           loseCounter = loseCounter + 1;
           console.log('Fail you did! x' + loseCounter);
-          displayResults('Fail you did! x' + loseCounter);
+          results = 'Fail you did! x' + loseCounter;
         }
+        displayColor('black', results);
       }
 
 
